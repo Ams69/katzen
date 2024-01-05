@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katze Clicker Spiel</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        h1 {
+            color: #e44d26;
+        }
+
+        #Katze-container {
+            margin-top: 20px;
+        }
+
+        #Katze {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+
+        #stats {
+            font-size: 18px;
+            color: #007bff;
+            margin-top: 10px;
+        }
+
+        #upgrade-container {
+            margin-top: 20px;
+        }
+
+        .upgrade {
+            display: inline-block;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Katzen klicker Spiel</h1>
+
+    <div id="Katze-container">
+        <img id="Katze" src="katze.png.png"
+[23:51]
+alt="Katze" onclick="clickKatze()">
+    </div>
+
+    <div id="stats">
+        <p>katzen: <span id="katzen">0</span></p>
+    </div>
+
+    <div id="upgrade-container">
+        <h2>Upgrades</h2>
+        <div class="upgrade" onclick="buyUpgrade('AutoClicker', 50)">AutoClicker - 50 katzen</div>
+        <div class="upgrade" onclick="buyUpgrade('MegaKatze', 500)">Mega Katze - 500 katzen</div>
+    </div>
+
+    <script>
+        let katzen = 0;
+        let autoClickers = 0;
+
+        function clickKatze() {
+            katzen++;
+            document.getElementById('katzen').innerText = katzen;
+        }
+
+        function buyUpgrade(upgrade, cost) {
+            if (katzen >= cost) {
+                katzen -= cost;
+                document.getElementById('katzen').innerText = katzen;
+
+                if (upgrade === 'AutoClicker') {
+                    autoClickers++;
+                    setInterval(function() {
+                        katzen += autoClickers;
+                        document.getElementById('katzen').innerText = katzen;
+                    }, 1000);
+                } else if (upgrade === 'MegaKatze') {
+                    katzen += 10; // Beispiel: Mega Katze gibt 10 zusätzliche katzen
+                    document.getElementById('katzen').innerText = katzen;
+                }
+            } else {
+                alert('Nicht genügend katzen!');
+            }
+        }
+    </script>
+<p><h1> 100 Katzen = Katzenfan</h1></p>
+<p><h1> 1000 Katzen = Katzensammler</h1></p>
+<p><h1> 5000 Katzen = Katzenheimbesitzer</h1></p>
+<p> <a href="https://www.tiktok.com/search?q=Katzen&t=1704415698229">Hier draufklicken um auf süße Katzen Tiktoks zu gelangen</a> </p>
+
+</body>
+</html>
+
+
+
